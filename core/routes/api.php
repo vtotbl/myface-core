@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use PhotoController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------

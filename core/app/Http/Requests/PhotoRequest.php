@@ -25,7 +25,10 @@ class PhotoRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            //
+            'user_id' => 'required|integer|exists:users,id',
+            'path' => 'required|string|unique:photos,path',
+            'is_active' => 'required|boolean',
+            'uploaded_at' => 'date',
         ];
 
         switch ($this->getMethod())
@@ -33,11 +36,11 @@ class PhotoRequest extends FormRequest
             case 'POST':
                 return $rules;
             case 'PUT':
-                $rules['id'] = 'required|integer|exists:games,id';
+                $rules['id'] = 'required|integer|exists:photos,id';
                 return $rules;
             case 'DELETE':
                 return [
-                    'id' => 'required|integer|exists:games,id'
+                    'id' => 'required|integer|exists:photos,id'
                 ];
         }
     }

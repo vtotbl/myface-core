@@ -41,4 +41,11 @@ class Photo extends Model
     protected $dates = [
         'uploaded_at',
     ];
+
+    /**
+     * @return string|null
+     */
+    public function getUpdatedAtColumn() {
+        return null;
+    }
 }
